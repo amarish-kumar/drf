@@ -19,10 +19,38 @@ need the [more](http://www.django-rest-framework.org/api-guide/generic-views/) [
 #### Requirements
 
 | Language/Framework | Version(s) |
+| ------------------------------- |
 | Python | 2.7, 3.2, 3.3, 3.4, 3.5 |
 | Django | 1.8, 1.9, 1.10 |
 
 #### Let's start
 
-1. Create a folder named 
+1. mkdir DrfProject
+
+2. cd DrfProject
+
+3. virtualenv vir_env
+
+4. source ./vir_env/bin/activate  (on Linux, MAC OS X)
+	
+.\vir_env\Scripts\activate (on Windows)
+
+5. pip install Django==1.8
+
+6. django-admin.py startproject RestApiProj
+
+7. mv RestApiProj src  (on Linux, MAC OS X)
+
+ren RestApiProj src (on Windows)
+
+8. cd src
+
+9. python manage.py startapp SensorApp
+
+10. python manage.py migrate
+
+11. python manage.py createsuperuser  (provide username, email, password with confirmation)
+
+11. pytohn manage.py runserver  
+
 
