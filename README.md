@@ -25,47 +25,42 @@ need the [more](http://www.django-rest-framework.org/api-guide/generic-views/) [
 
 #### Let's start
 
-1) mkdir DrfProject
 
-2) cd DrfProject
+| Language/Framework | Version(s) |
+| ------------------ | ---------- |
+| Python | 2.7, 3.2, 3.3, 3.4, 3.5 |
+| Django | 1.8, 1.9, 1.10 |
 
-3) virtualenv vir_env
+#### Let's start
 
-4) source ./vir_env/bin/activate  (on Linux, MAC OS X)
-	
-.\vir_env\Scripts\activate (on Windows)
+| SNo | Command |
+| --- | ------- |
+| 1 | mkdir DrfProject |
+| 2 | cd DrfProject |
+| 3 | virtualenv vir_env |
+| 4 | source ./vir_env/bin/activate  (on Linux, MAC OS X) <br><br>.\vir_env\Scripts\activate (on Windows) | 
+| 5 | pip install Django==1.8 (required) |
+| 6 | django-admin.py startproject RestApiProj |
+| 7 | mv RestApiProj src  (on Linux, MAC OS X) <br>ren RestApiProj src (on Windows) |
+| 8 | cd src |
+| 9 | python manage.py startapp SelfTrialApp  (I will use this app later) |
+| 10 | python manage.py migrate |
+| 11 | python manage.py createsuperuser  (provide username, email, password with confirmation) |
+| 12 | pytohn manage.py runserver 6724 |
+| 13 | pip install djangorestframework |
+| 14 | pip install markdown       (Markdown support for the browsable API, optional) |
+| 15 | pip install django-filter  (Filtering support, optional) |
+| 16 | Add **'rest_framework'** to **'INSTALLED_APPS'** in settings.py |
+| 17 | cd .. |
+| 18 | pip freeze > pip-requirements.txt |
+| 19 | Add the following to **RestApiProj/settings.py** |
+| 20 | Finally Paste the following code to **RestApiProj/urls.py** |
+| 21 | cd src	(moving to the directory where the manage.py is, as we are in drf-git directory) |
+| 22 | python manage.py runserver <br>
+Now visit [http://127.0.0.1:8000/users/](http://127.0.0.1:8000/users/) |
 
-5) pip install Django==1.8 (required)
 
-6) django-admin.py startproject RestApiProj
-
-7) mv RestApiProj src  (on Linux, MAC OS X)
-
-ren RestApiProj src (on Windows)
-
-8) cd src
-
-9) python manage.py startapp SelfTrialApp  (I will use this app later)
-
-10) python manage.py migrate
-
-11) python manage.py createsuperuser  (provide username, email, password with confirmation)
-
-12) pytohn manage.py runserver 6724
-
-13) pip install djangorestframework
-
-14) pip install markdown       (Markdown support for the browsable API, optional)
-
-15) pip install django-filter  (Filtering support, optional)
-
-16) Add **'rest_framework'** to **'INSTALLED_APPS'** in settings.py
-
-17) cd ..
-
-18) pip freeze > pip-requirements.txt
-
-19) Add the following to **RestApiProj/settings.py**.
+#### RestApiProj/settings.py
 
 ```python
 #Global settings for Rest framework are kept in a single configuration dictionary
@@ -76,9 +71,9 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
-```
+``` 
 
-20) Finally Paste the following code to **RestApiProj/urls.py**.
+#### RestApiProj/urls.py
 
 ```python
 from django.conf.urls import include, url
@@ -121,11 +116,4 @@ urlpatterns = [
 
 ]
 ```
-
-21) cd src	(moving to the directory where the manage.py is, as we are in drf-git directory)
-
-22) python manage.py runserver
-
-Now visit [http://127.0.0.1:8000/users/](http://127.0.0.1:8000/users/)
-
 
