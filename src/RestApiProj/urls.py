@@ -4,7 +4,7 @@ from django.contrib import admin
 # Django restframework
 from django.contrib.auth.models import User
 from rest_framework import viewsets, routers, serializers
-from SelfTrialApp.viewsets import StudentViewSet
+from SelfTrialApp.viewsets import StudentViewSet, PrimaryScoreViewSet, PostViewSet
 
 
 # User: Serializers define the API representation
@@ -22,6 +22,8 @@ class UserViewSet(viewsets.ModelViewSet):
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r"students", StudentViewSet)
+router.register(r"primary-scores", PrimaryScoreViewSet)
+router.register(r"posts", PostViewSet)
 
 # urlpatterns should be in the bottom of the above code
 urlpatterns = [

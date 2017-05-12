@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+
 
 class Student(models.Model):
 	""" A class that defines the structure of Student object """
@@ -29,3 +31,18 @@ class PrimaryScore(models.Model):
 		# self.fullname.fullname
 		return str(self.fullname)  
 
+class Post(models.Model):
+	""" A model that defines the structure of Post"""
+
+	title = models.CharField(max_length=50, blank=False)
+	description = models.TextField()
+	pic = models.URLField(max_length=1000) #default max_length is 200
+	created = models.DateTimeField(auto_now_add=True, auto_now=False)
+	updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+	posted_by = models.ForeignKey(User, on_delete=models.CASCADE) # "User" => won't work
+
+	def __unicode__(self):
+		return self.title
+
+
+		
