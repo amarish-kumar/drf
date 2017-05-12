@@ -84,7 +84,6 @@ from django.contrib import admin
 from django.contrib.auth.models import User
 from rest_framework import viewsets, routers, serializers
 
-# ..............Serializers, Viewsets & Routers................
 
 # Serializers define the API representation
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -102,7 +101,6 @@ router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 
 
-#....................urlpatterns...............................
 # urlpatterns should be in the bottom of the above code
 urlpatterns = [
     # Examples:
