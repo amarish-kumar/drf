@@ -4,16 +4,16 @@ from django.contrib import admin
 # Django restframework
 from django.contrib.auth.models import User
 from rest_framework import viewsets, routers, serializers
+from SelfTrialApp.viewsets import StudentViewSet
 
-# ..............Serializers, Viewsets & Routers................
 
-# Serializers define the API representation
+# User: Serializers define the API representation
 class UserSerializer(serializers.HyperlinkedModelSerializer):
 	class Meta:
 		 model = User 
 		 fields = ("url", "username", "email", "is_staff")
 
-# Viewsets define the view behaviour
+# User: Viewsets define the view behaviour
 class UserViewSet(viewsets.ModelViewSet):
 	queryset = User.objects.all()
 	serializer_class = UserSerializer
@@ -21,9 +21,8 @@ class UserViewSet(viewsets.ModelViewSet):
 # Routers provide an easy way of automatically determining the URL conf
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
+router.register(r"students", StudentViewSet)
 
-
-#....................urlpatterns...............................
 # urlpatterns should be in the bottom of the above code
 urlpatterns = [
     # Examples:

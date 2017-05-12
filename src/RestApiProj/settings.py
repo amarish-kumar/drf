@@ -42,7 +42,7 @@ INSTALLED_APPS = (
     'rest_framework',
 
     # user app(s)
-    # "SelfTrialApp",
+    "SelfTrialApp",
 )
 
 MIDDLEWARE_CLASSES = (
