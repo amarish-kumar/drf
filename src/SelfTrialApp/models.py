@@ -13,7 +13,7 @@ class Student(models.Model):
 	def __unicode__(self):
 		return self.fullname
 
-class PrimaryScore(models.Model):
+class PrimarySchoolScore(models.Model):
 	""" 
 		A class that defines the structure of Primary Score of all the subjects.
 		The structure can be different for different schools.
@@ -52,18 +52,16 @@ class CommonScore(models.Model):
 	english = models.PositiveIntegerField(blank=False)
 	mathematics = models.PositiveIntegerField(blank=False)
 
-class HighScore(CommonScore):
-	""" A class that inherits from CommonScore"""
+class HighSchoolScore(CommonScore):
+	""" A class that inherits CommonScore """
 
 	social_science = models.PositiveIntegerField(blank=False)
 	environment = models.PositiveIntegerField(blank=False)
 	sanskrit = models.PositiveIntegerField(blank=False)
 
-	# def __init__(self):
-	# 	  super(CommonScore, self).__init__()
-
 	def __unicode__(self):
-		return "Subject%d"%(self.id)
+		return self.fullname.fullname
+
 
 
 

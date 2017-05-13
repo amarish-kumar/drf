@@ -1,4 +1,4 @@
-from .models import Student, PrimaryScore, Post
+from .models import Student, PrimarySchoolScore, Post, HighSchoolScore
 from rest_framework import serializers
 
 class StudentSerializer(serializers.HyperlinkedModelSerializer):
@@ -7,10 +7,10 @@ class StudentSerializer(serializers.HyperlinkedModelSerializer):
 		model = Student
 		fields = "__all__"
 
-class PrimaryScoreSerializer(serializers.HyperlinkedModelSerializer):
+class PrimarySchoolScoreSerializer(serializers.HyperlinkedModelSerializer):
 	""" Serializer of PrimaryScore """
 	class Meta:
-		model = PrimaryScore
+		model = PrimarySchoolScore
 		fields = "__all__" 
 
 class PostSerializer(serializers.HyperlinkedModelSerializer):
@@ -18,4 +18,11 @@ class PostSerializer(serializers.HyperlinkedModelSerializer):
 	class Meta:
 		model = Post
 		fields = "__all__"
+
+class HighSchoolScoreSerializer(serializers.HyperlinkedModelSerializer):
+	""" Serializer for HighSchoolScore """
+	class Meta:
+		model = HighSchoolScore
+		fields = "__all__"
+
 
