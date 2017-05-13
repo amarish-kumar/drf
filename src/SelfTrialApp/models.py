@@ -44,5 +44,28 @@ class Post(models.Model):
 	def __unicode__(self):
 		return self.title
 
+class CommonScore(models.Model):
+	""" A base class that defines the sturcture of common subjects for students """
+
+	fullname = models.ForeignKey("Student", on_delete=models.CASCADE)
+	hindi = models.PositiveIntegerField(blank=False)
+	english = models.PositiveIntegerField(blank=False)
+	mathematics = models.PositiveIntegerField(blank=False)
+
+class HighScore(CommonScore):
+	""" A class that inherits from CommonScore"""
+
+	social_science = models.PositiveIntegerField(blank=False)
+	environment = models.PositiveIntegerField(blank=False)
+	sanskrit = models.PositiveIntegerField(blank=False)
+
+	# def __init__(self):
+	# 	  super(CommonScore, self).__init__()
+
+	def __unicode__(self):
+		return "Subject%d"%(self.id)
+
+
+
 
 		

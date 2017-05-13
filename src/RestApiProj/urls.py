@@ -5,10 +5,11 @@ from django.contrib import admin
 from django.contrib.auth.models import User
 from rest_framework import viewsets, routers, serializers
 from SelfTrialApp.viewsets import StudentViewSet, PrimaryScoreViewSet, PostViewSet
-
+from SelfTrialApp.models import Post
 
 # User: Serializers define the API representation
 class UserSerializer(serializers.HyperlinkedModelSerializer):
+
 	class Meta:
 		 model = User 
 		 fields = ("url", "username", "email", "is_staff")
